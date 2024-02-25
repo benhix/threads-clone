@@ -4,7 +4,6 @@ import { z } from "zod";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
@@ -38,7 +37,6 @@ function Comment({ threadId, currentUserImg, currentUserId }: Props) {
   });
 
   const onSubmit = async (values: z.infer<typeof CommentValidation>) => {
-
     await addCommentToThread(
       threadId,
       values.thread,
@@ -72,7 +70,6 @@ function Comment({ threadId, currentUserImg, currentUserId }: Props) {
                   {...field}
                   placeholder='Comment...'
                   className='no-focus text-light-1 outline-none'
-                  autoComplete="off"
                 />
               </FormControl>
             </FormItem>
